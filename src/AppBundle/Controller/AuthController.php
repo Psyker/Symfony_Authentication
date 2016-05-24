@@ -26,6 +26,8 @@ class AuthController extends Controller
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        $this->addFlash('success', 'Well done ! You are connected.');
+
         return $this->render(
             'security/login.html.twig',
         array(
@@ -34,6 +36,8 @@ class AuthController extends Controller
                 'error'         => $error,
             )
         );
+
+
     }
 
 

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container margin">
 
 {{ form_start(form) }}
     {{ form_row(form.prenom) }}
@@ -10,6 +11,7 @@
     {{ form_row(form.password.second) }}
 <button type="submit">Register</button>
 {{ form_end(form) }}
+</div>
 {% endblock %}
 {% block stylesheets %}
 

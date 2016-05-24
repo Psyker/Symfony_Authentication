@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -27,6 +28,7 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=64)
+     * @Assert\NotBlank()
      */
     private $nom;
 
@@ -34,6 +36,7 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=64)
+     * @Assert\NotBlank()
      */
     private $prenom;
 
@@ -41,6 +44,10 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=64, unique=true)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
@@ -48,6 +55,11 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=true,
+     *     message="Your password have to contain a number"
+     * )
      */
     private $password;
 
