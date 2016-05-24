@@ -35,7 +35,7 @@ class RegistrationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            $this->addFlash('success', 'Congratulations ! Your account has been successfully created.');
+            $this->addFlash('success', '<strong>Congratulations !</strong><br>Your account has been successfully created.');
             return $this->redirectToRoute('homepage');
 
         }
