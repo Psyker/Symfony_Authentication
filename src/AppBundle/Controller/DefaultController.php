@@ -22,5 +22,14 @@ class DefaultController extends Controller
 
     }
 
+    /**
+     * @Route("/profile/{id}", name="profile")
+     */
+    public function profileAction(User $user)
+    {
+        return $this->render('security/profile.html.twig', ['user' => $user]);
+
+    }
+
 
 }

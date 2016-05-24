@@ -5,7 +5,8 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron text-center">
             <h1>KokoroAuth</h1>
-            <p>Welcome to KokoroAuth, the authentication system developped by <a>Théo Bourgoin</a></p>
+            <p>Beta 1.0.0</p>
+            <p>Welcome to KokoroAuth, the authentication system developped by <a href="https://github.com/Psyker">Théo Bourgoin</a><br><small> Made with Symfony 3</small></p>
             <p><a  href="{{ path('user_registration') }}" class="btn btn-primary btn-lg">Create an account</a></p>
         </div>
         {% for flash_message in app.session.flashBag.get('success') %}
