@@ -21,11 +21,9 @@ class RegistrationController extends Controller
     {
         //Création du formulaire
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
 
-        //Gérer le submit
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        $user->setEmail('_email');
+
             //Si le contenue du formulaire est valide et soumis, encodage du mot de passe
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPassword());
@@ -36,9 +34,7 @@ class RegistrationController extends Controller
             $em->persist($user);
             $em->flush();
             $this->addFlash('success', 'Vous êtes connecté !');
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('homepage', ['user' => $user]);
 
-        }
-        return $this->render('security/register.html.twig', array('form' => $form->createView()));
     }
 }
